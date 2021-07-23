@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="{% static "css/style_nav.css" %}">
+    </head>
+    <body>
+
+
+        <!-----------------------------NAVBAR-------------------------------->
+
+        <div class="container-fluid" style="padding:0">
+            <div class="navbar" >
+              {% if user.is_authenticated %}
+                <div class="" style="position:absolute">
+                  <h3 style="color:white">Hello {{request.user.first_name}}!</h3>
+                  <!-- <h4 style="color:white">Welcome To Anmol Mobile Care</h4> -->
+                </div>
+              {% else %}
+                <div class="logo" style="">
+                    <a href="/"><img class="logo-img" src="{% static "Images/home/Logo.png" %}"></a>
+                </div>
+              {% endif %}
+              <!-- <li class="nav-item" style="width:200px; height:50px"> -->
+                  <div class="dropdown nav-item" style="margin-left:550px;position:absolute">
+                      <form class="example" action="/search" method="GET" style="margin:auto;max-width:300px">
+                          <input type="text" name="name" placeholder="   Search  by  brand">
+                          <button type="submit"><i class="fa fa-search"></i></button>
+                        </form>
+                  </div>
+              <!-- </li> -->
+                <nav>
+                    <ul>
+                      {% if user.is_authenticated %}
+                        <h3 style="color:white" ></h3>
+                      {% endif %}
+
+                    <!---------------------HOME------------------------>
+
+
+                    <!------------------------------MOBILES------------------------------->
+
+                        <li>
+                            <div class="dropdown">
+                                <a href="/mobilePage/" class="dropbtn">MOBILES</a>
+                            </div>
+                        </li>
+
+                        <!--------------------------ACCESSORIES--------------------------------->
+
+                        <li>
+                            <div class="dropdown">
+                                <a href="/allAccessories/" class="dropbtn">ACCESSORIES</a>
+                                <div class="dropdown-content">
+                                <a href="/accessoryPageByProduct/2">EARPHONES/HEADPHONES</a>
+                                <a href="/accessoryPageByProduct/3">CHARGER</a>
+                                <a href="/accessoryPageByProduct/4">CABLE</a>
+                                <a href="/accessoryPageByProduct/5">BATTERY</a>
+                                <a href="/accessoryPageByProduct/6">OTHERS</a>
+                                <!-- <a href="#">SPEAKERS</a> -->
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-------------------------CONTACT----------------------------->
+
+                        <li>
+                            <div class="dropdown" >
+                                <a href="/contact_page" class="dropbtn">CONTACT</a>
+                            </div>
+                        </li>
+
+                        <!-------------------------LOGIN------------------------->
+
+                        <li>
+                            <div class="dropdown">
+                                <a href="" class="dropbtn">
+                                    <i class="fa fa-user"></i>
+                                </a>
+                                <div class="dropdown-content">
+                                  {% if user.is_authenticated %}
+                                  <a href="/accounts/logout">LOGOUT</a>
+                                  <a href="/cart/myorder">MY ORDERS</a>
+                                  {% else %}
+                                  <a href="/accounts/login">LOGIN/SIGNUP</a>
+                                  {% endif %}
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-------------------------SHOPPING CART--------------------------->
+
+                        <li>
+                            <div class="dropdown">
+                              {% if user.is_authenticated %}
+                                <a href="/cart/cart"  class="dropbtn">
+                                    <i class="fa fa-shopping-cart"></i>
+                                </a>
+                              {% endif %}
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+
+        <!----------footer----------->
+
+        <!-- <div class="footer">
+            <div class="container-fluid">
+                <div class="row1">
+                    <div class="fcol-2"> -->
+
+                    <!------------------SOCIAL----------------->
+
+                        <!-- <h3>SOCIAL</h3>
+                        <a href="">
+                            <i class="fa fa-facebook"></i>
+                            <span>Facebook</span>
+                        </a>
+                        <a href="">
+                            <i class="fa fa-twitter"></i>
+                            <span>Twitter</span>
+                        </a>
+                        <a href="">
+                            <i class="fa fa-instagram"></i>
+                            <span>Instagram</span>
+                        </a>
+                        <a href="">
+                            <i class="fa fa-pinterest"></i>
+                            <span>Pinterest</span>
+                        </a>
+                    </div>
+                    <hr> -->
+
+                    <!--------------------POLICY----------------------->
+
+                    <!-- <div class="fcol-2">
+                        <h3>POLICY</h3>
+                        <a href="">PRIVACY POLICY</a>
+                        <a href="">RETURN POLICY</a>
+                        <a href="">TERMS & CONDITIONS</a>
+                    </div>
+                    <hr> -->
+
+                    <!--------------------COPYRIGHT----------------------->
+
+                    <!-- <div class="copyright">
+                        <i class="fa fa-copyright">
+                            <span>Anmol_Mobile_Shop.com All rights reserved</span>
+                        </i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html> -->

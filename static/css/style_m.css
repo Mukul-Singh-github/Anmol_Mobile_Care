@@ -1,0 +1,424 @@
+body{
+  background-color: white;
+}
+
+/*---------------------MOBILE AND ACCESSORIES PAGE------------------------*/
+
+.super-container{
+  display: flex;
+  flex-wrap:wrap;
+  justify-content:space-around;
+  margin-bottom: 10%;
+  margin-top: 60px;
+}
+
+/*------------------------FILTER-------------------------*/
+
+.left-container{
+  background-color: rgba(1,1,22);
+  border: 1px solid white;
+  width: 230px;
+  border-radius: 20px;
+  font-family: 'Poppins', sans-serif;
+  position: sticky;
+  position: -webkit-sticky;
+  align-self: flex-start;
+  right: 100px;
+  top: 100px;
+}
+.header-container{
+  color: white;
+  margin-top: 20px;
+}
+
+/*-----------------------FILTER HEADER-------------------------*/
+
+.filter-header{
+  margin-left: 10px;
+  font-size: 22px;
+}
+
+/*-----------------------CLEAR HEADER-------------------------*/
+
+.clear-header{
+  margin-left: 50px;
+  font-size: 14px;
+  transition: 0.5s;
+}
+.clear-header:hover{
+  color: #f64352;
+  font-size: 18px;
+  font-style: normal;
+  cursor: pointer;
+  transition: 00.5s;
+}
+
+/*-----------------------BRAND DROPDOWN BUTTON-------------------------*/
+
+.dropbtn{
+  background-color: rgba(1,1,22);
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  margin-left: 20px;
+  transition: 00.5s;
+}
+.dropbtn:hover , .dropbtn:focus{
+  color: #f64352;
+  font-size: 22px;
+}
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  text-align: justify;
+  /* margin-left: 30px; */
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px;
+  z-index: 1;
+}
+.dropdown-content a {
+  color: black;
+  padding: 8px 10px;
+  text-decoration: white;
+  display: block;
+  font-size: 12px;
+  transition: 00.5s;
+}
+.dropdown-content a:hover {
+  background-color: whitesmoke;
+  color: #f64352;
+  font-size: 16px;
+}
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {
+  display:block;
+}
+
+/*-----------------------Price, Type Container-------------------------*/
+
+.price-header , .type-header{
+  color: white;
+  font-size: 18px;
+  margin-left: 90px;
+}
+.price-list , .type-list{
+  margin-top: 10px;
+  text-align: justify;
+  margin-left: 10px;
+}
+.price-list li , .type-list li{
+  color: white;
+  text-decoration: none;
+}
+.price-list li a , .type-list li a{
+  color: white;
+  text-decoration: none;
+  transition: 00.5s;
+  font-size: 14px;
+}
+.price-list li a:hover , .type-list li a:hover{
+  color: #f64352;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 17px;
+}
+.price-container{
+  margin-bottom: 20px;
+}
+.type-container{
+  margin-bottom: 20px;
+}
+
+/*-----------------------ACCESSORIES CATEGORY STYLE--------------------------*/
+
+.price-header1{
+  margin-left: 40px;
+  color: white;
+  font-size: 18px;
+}
+.categories-container{
+  margin-bottom: 20px;
+}
+.categories-header{
+  color: white;
+  font-size: 18px;
+  margin-left: 40px;
+}
+.categories-list{
+  margin-top: 10px;
+  text-align: justify;
+  margin-left: 10px;
+}
+.categories-list li{
+  color: white;
+  text-decoration: none;
+}
+.categories-list li a{
+  color: white;
+  text-decoration: none;
+  transition: 00.5s;
+  font-size: 14px;
+}
+.categories-list li a:hover{
+  color: #f64352;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 17px;
+}
+
+/*----------------------MOBILE & ACCESSORIES PRODUCTS----------------------- */
+
+.right-container{
+  width: 900px;
+  margin-left: 0%;
+}
+.products{
+  margin : 40px;
+}
+.row{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding-left: 0%;
+  margin-top: 0%;
+}
+.col-6 a{
+  text-decoration: none;
+  color: black;
+}
+.col-6{
+  flex-basis: 20%;
+  min-width: 300px;
+  padding: 5%;
+  transition: 0.5s;
+  cursor: pointer;
+}
+.col-6 img{
+  width: 100%;
+}
+.col-6 h4{
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 650;
+  font-size: 28px;
+  align-items: center;
+
+}
+.col-6 p{
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 20px;
+  font-weight: 650;
+}
+.col-6:hover{
+  transform: translateY(-15px);
+  color: #f64352;
+}
+
+/*-----------------------PRODUCT DETAILS PAGE------------------------*/
+
+.super-pcontainer{
+  display: flex;
+  flex-wrap:wrap;
+  justify-content:space-around;
+  margin-bottom: 10%;
+}
+
+/*-------------------------IMAGE CONTAINER---------------------------*/
+
+.img-pcontainer{
+  width: 35%;
+  position: sticky;
+  position: -webkit-sticky;
+  right: 100px;
+  top: 50px;
+}
+.pimg{
+  margin-left: 25%;
+  min-width: 250px;
+}
+/* Hide the images by default */
+.mySlides {
+  display: none;
+  margin-bottom: 5%;
+}
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+  cursor: pointer;
+}
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  width: auto;
+  padding: 10px;
+  margin-top: -50px;
+  color: #f64352;
+  font-weight: bold;
+  font-size: 30px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+  transition: 00.5s;
+}
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(1, 1, 22);
+  font-size: 35px;
+  color: white;
+  transition: 00.5s;
+}
+/* Number text (1/3 etc) */
+.numbertext {
+  color: rgb(1,1,22);
+  font-size: 14px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+/* Six columns side by side */
+.column {
+  float: left;
+  width: 16.66%;
+}
+/* Add a transparency effect for thumnbail images */
+.demo {
+  opacity: 0.6;
+}
+.active, .demo:hover {
+  opacity: 1;
+}
+
+/*-------------------------DETAILS CONTAINER---------------------------*/
+
+.detail-pcontainer{
+  width: 60%;
+  font-family: 'Poppins', sans-serif;
+}
+/*TITLE*/
+.ptitle{
+  color: #f64352;
+  font-size: 40px;
+  font-weight: 500;
+}
+.hr{
+  border: 1px solid black;
+}
+/*DESCRIPTION*/
+.pdescription{
+  font-size: 14px;
+  color: black;
+}
+/*PRICE*/
+.price{
+  margin-top: 2%;
+  color: #f64352;
+  font-size: 32px;
+}
+/*BUTTONS*/
+.cartbtn, .buybtn{
+  margin-top: 2%;
+  padding: 10px 20px;
+  background-color: white;
+  margin-left: 5%;
+  color: #f64352;
+  font-size: 20px;
+  font-weight: 700;
+  transition: 00.5s;
+  border: 1% solid black;
+  border-radius: 10px;
+}
+.cartbtn:hover, .buybtn:hover{
+  padding: 12px 22px;
+  transition: 00.5s;
+  background-color: rgb(1,1,22);
+  color: white;
+}
+/*AVAILABLE OFFER*/
+.offer{
+  margin-top: 5%;
+  font-size: 24px;
+  color: black;
+}
+.offer-list{
+  color: black;
+  font-size: 14px;
+}
+/*FEATURES TABLE*/
+table{
+  margin-top: 3%;
+  color: black;
+  font-size: 14px;
+}
+td{
+  padding-left: 5%;
+}
+.thead{
+  font-size: 14px;
+  margin-left: 5%;
+  padding: 5px 30px 5px 10px;
+}
+.hr1{
+  border: 3px solid #f64352;
+}
+
+/*-------------------------SPECIFICATIONS CONTAINER---------------------------*/
+
+.Specification-container{
+  width: 60%;
+  margin-left: 38%;
+}
+h2{
+  font-size: 32px;
+  color: black;
+  margin-bottom: 5%;
+}
+h4{
+  color: black;
+  text-decoration: underline;
+  font-size: 22px;
+}
+#more {
+  display: none;
+}
+button{
+  margin-top: 3%;
+  padding: 5px 8px;
+  background-color: white;
+  color: #f64352;
+  font-size: 16px;
+  font-weight: 700;
+  transition: 00.5s;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+button:hover{
+  padding: 7px 10px;
+  transition: 00.5s;
+  background-color: rgb(1,1,22);
+  color: white;
+}
+
+/*-------------------------RATING CONTAINER---------------------------*/
+
+.rating-container{
+  width: 60%;
+  margin-left: 38%;
+  margin-bottom: 0%;
+}
+.rating{
+  margin-top: 0%;
+  font-size: 48px;
+  color: black;
+}

@@ -1,0 +1,257 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <title>Cart</title>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <!--------------------------CSS------------------------>
+
+        <style>
+            html a{
+                font-size: 18px;
+            }
+            body{
+                background-color: white;
+                margin-top: 60px;
+            }
+            .Cart{
+                display: flex;
+                flex-wrap:wrap;
+                justify-content:space-around;
+                margin-bottom: 10%;
+                margin-top: 9%;
+            }
+            .left-container{
+                width: 800px;
+                box-shadow: 0px 0px 5px 1px rgb(1, 1, 22);
+                margin-left: 3%;
+            }
+            table{
+                width: 100%;
+                border-collapse: collapse;
+            }
+            th{
+                text-align: left;
+                padding: 5px;
+                background-color: #f64352;
+                color: white;
+                font-family: 'Poppins', sans-serif;
+                font-size: 22px;
+                font-weight: 600;
+            }
+            td{
+                padding: 10px 5px;
+                text-align: left;
+            }
+            td input{
+                padding: 5px;
+                width: 55px;
+                height: 30px;
+            }
+            td img{
+                width: 100px;
+                height: 200px;
+                margin-right: 20px;
+            }
+            .up-down{
+              height: 20px;
+              width: 20px;
+            }
+            td a:hover{
+                font-size: 18px;
+                transition: 0.5s;
+                font-weight: 600;
+            }
+            .cart-info{
+                display: flex;
+                flex-wrap: wrap;
+                margin-left: 20px;
+                margin-top: 20px;
+            }
+            .right-container{
+                box-shadow: 0px 0px 5px 1px rgb(1, 1, 22);
+                width: 400px;
+                font-family: 'Poppins', sans-serif;
+                position: sticky;
+                position: -webkit-sticky;
+                align-self: flex-start;
+                left: 150px;
+                top: 50px;
+            }
+            .total-amount{
+                text-align: center;
+                padding: 8px;
+                background-color: #f64352;
+                color: white;
+                font-family: 'Poppins', sans-serif;
+                font-size: 24px;
+                font-weight: 600;
+            }
+            .price-data{
+                font-size: 16px;
+                font-family: 'Poppins', sans-serif;
+                color: rgb(1, 1, 22);
+            }
+            .orderbtn{
+                margin-top: 2%;
+                padding: 10px 20px;
+                background-color: white;
+                margin-left: 30%;
+                color: #f64352;
+                font-size: 22px;
+                font-weight: 600;
+                transition: 00.5s;
+                border: 2px solid black;
+                border-radius: 10px;
+                margin-bottom: 5%;
+            }
+            .orderbtn:hover{
+                padding: 12px 22px;
+                transition: 00.5s;
+                background-color: rgb(1,1,22);
+                color: white;
+            }
+            .dropbtn{
+              margin-left: 20px;
+            }
+            #paypal-button-container{
+              display: none;
+            }
+        </style>
+    </head>
+    <body>
+      {% include "navbar.html" %}
+        <div class="Cart">
+            <div class="cart-container left-container">
+                <table>
+                    <tr>
+                        <th style="padding-left: 30px;">PRODUCT</th>
+                        <th>QUANTITY </th>
+                        <th>PRICE</th>
+                    </tr>
+                    {% for mobile in mobiles %}
+                    <tr>
+                        <td>
+                            <div class="cart-info">
+                                <img src="{{mobile.product.img.img1.url}}">
+                                <div style="margin-top: 30px;">
+                                  <p style="font-size: 24px; font-family: 'Poppins', sans-serif;">{{mobile.product.brand}} {{mobile.product.model_no}}</p>
+                                  <br>
+                                    <p class="cartbtn"style="font-size: 16px; font-family: 'Poppins', sans-serif; color: #035efc; cursor: pointer;" data-item_id={{mobile.product.id}} data-action="delete" >Remove</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td  style="font-size:16px">
+                          <i data-item_id={{mobile.product.id}} data-action="add" class="fa fa-plus cartbtn" aria-hidden="true"></i>
+                          &nbsp{{mobile.quantity}}  &nbsp
+                          <i data-item_id={{mobile.product.id}} data-action="remove" class="fa fa-minus cartbtn" aria-hidden="true" style="font-size:16px"></i>
+                        </td>
+                        <td style="font-family: 'Poppins',sans-serif; font-size: 18px;">Rs. {{mobile.product.price}}/-</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+            <div class="price-container right-container">
+                <table>
+                    <p class="total-amount">TOTAL AMOUNT</p>
+                    <tr style="font-family: 'Poppins', sans-serif; font-size: 20px; color: black; margin-top: 20px;">
+                        <td>Product Name</td>
+                        <td>Quantity</td>
+                        <td>Price</td>
+                    </tr>
+                    {% for mobile in mobiles %}
+                    <tr class="price-data">
+                        <td>{{mobile.product.brand}} {{mobile.product.model_no}}</td>
+                        <td>x {{mobile.quantity}}</td>
+                        <td>Rs.{{mobile.get_quantitywise_price}}/-</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+                <span style='font-size:35px; margin-left: 45%;'>&#43;</span>
+                {% if order_obj.get_total_price != 83 %}
+                <table>
+                  <tr class="price-data">
+                    <td>Tax and Services</td>
+                    <td style="text-align: justify;">Rs. 23/-</td>
+                  </tr>
+                    <tr class="price-data">
+                      <td>Shipping Charges</td>
+                      <td style="text-align: justify;">Rs. 60/-</td>
+                    </tr>
+                </table>
+                {% endif %}
+                <hr style="border: 2px solid rgb(1, 1, 22);">
+                <table>
+                    <tr style="font-size: 20px; color: black; font-family: 'Poppins'; font-weight: 600;">
+                      {% if order_obj.get_total_price != 83 %}
+                        <td>TOTAL AMOUNT</td>
+                        <td style="text-align:end;">Rs.{{order_obj.get_total_price }}/-</td>
+                      {% endif %}
+                    </tr>
+                </table>
+                <button id="placedOrderBtn" class="orderbtn">Place Order</button>
+                <form id="PlacedOrderform" action="/cart/afterPayment" method="GET">
+                  <input type="hidden" name="user" value="{{request.user}}">
+                  <div id="paypal-button-container"></div>
+                </form>
+            </div>
+        </div>
+        <script src="{% static "js/cart.js" %}"></script>
+        <script src="https://www.paypal.com/sdk/js?client-id=AQJF9G02xXdGpKx4sC60FPQKGs-rlIZz_8B_xrMO1adfUNxEVfBPN6o7YXOLTUTS4YjAZiBFUGYJeg7W&currency=USD"></script>
+
+<script>
+
+  document.getElementById("placedOrderBtn").addEventListener("click",function(){
+    if({{order_obj.get_total_price}} === 83){
+      var user = localStorage.getItem("user")
+      console.log(user)
+      alert("Hey "+user+", seems like your cart is empty!")
+    }
+    else{
+      document.getElementById("paypal-button-container").style.display = "inherit"
+    }
+
+  })
+
+    // Render the PayPal button into #paypal-button-container
+    paypal.Buttons({
+
+        // Set up the transaction
+        createOrder: function(data, actions) {
+            return actions.order.create({
+                purchase_units: [{
+                    amount: {
+                        value: '{{order_obj.get_total_price}}'
+                    }
+                }]
+            });
+        },
+
+        // Finalize the transaction
+        onApprove: function(data, actions) {
+            return actions.order.capture().then(function(details) {
+                // Show a success message to the buyer
+                document.getElementById("PlacedOrderform").submit()
+                alert('Transaction completed by ' + details.payer.name.given_name + '!');
+            });
+        }
+
+
+    }).render('#paypal-button-container');
+
+</script>
+    </body>
+</html>

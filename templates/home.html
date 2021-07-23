@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <title>ANMOL MOBILE CARE</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="{% static "css/stylesheet.css" %}">
+        <link rel="stylesheet" href="{% static "css/style_nav.css" %}">
+
+
+        <script type="text/javascript">
+          var user = '{{request.user}}'
+          localStorage.setItem("user",user);
+        </script>
+    </head>
+
+        <!----------------------BODY------------------------>
+
+    <body>
+    {% include 'navbar.html' %}
+      <div class="banner-div">
+        <img class="banner" src="{% static "Images/home/banner.png" %}" alt="banner">
+      </div>
+      <div class="oneplus">
+          <a href=""><img style="margin-top:30px" src="{% static "Images/home/oneplus_ps6.png" %}"></a>
+      </div>
+        <div>
+            <h1 class="head">Our Products</h1>
+        </div>
+
+        <!--------------------MOBILES------------------------->
+
+        <div>
+            <a href="D:\Web Pages\Anmol Mobile Shop\Mobile.html"><h2 class="title">MOBILES</h2></a>
+        </div>
+       <div class="category-wrapper">
+         {% for mobile in mobiles %}
+           <div class="mob-categories">
+               <div class="row">
+                 <div class="col-6">
+                     <a href="product/product_detail/{{mobile.id}}/{{mobile.category_id}}">
+                         <img src="{{mobile.img.img1.url}}" >
+                         <h4>{{mobile.brand}} {{mobile.model_no}}</h4>
+                         <p>₹ {{mobile.price}}</p>
+                         <p>{{mobile.rate}} <i class="fa fa-star" aria-hidden="true"></i></p>
+                     </a>
+                 </div>
+               </div>
+           </div>
+           {% endfor %}
+          </div>
+
+          <a href="/mobilePage/" class="viewmore" >View More</a>
+
+        <!--------------------ACCESSORIES----------------------->
+
+        <div>
+            <a href="D:\Web Pages\Anmol Mobile Shop\Accessories.html"><h2 class="title">ACCESSORIES</h2></a>
+        </div>
+        <div class="categories">
+          {% for accessory in accessories %}
+            <div class="mob-categories" style="border:none; margin-left:60px">
+            <div class="row">
+              <div class="col-6" style="padding:0; padding-top:50px;" >
+                    <a href="product/product_detail/{{accessory.id}}/{{accessory.category_id}}">
+                        <img src="{{accessory.img.img1.url}}" style="width:350px; height:400px;" >
+                        <h4>{{accessory.brand}} Tempered Glass</h4>
+                        <p>Rs. {{accessory.price}}/</p>
+                    </a>
+                  </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+
+
+<!----------footer----------->
+
+        <div class="footer">
+            <div class="container-fluid">
+                <div class="row1">
+                    <div class="fcol-2">
+
+                    <!------------------SOCIAL----------------->
+
+                        <h3>SOCIAL</h3>
+                        <a href="">
+                            <i class="fa fa-facebook"></i>
+                            <span>Facebook</span>
+                        </a>
+                        <a href="">
+                            <i class="fa fa-twitter"></i>
+                            <span>Twitter</span>
+                        </a>
+                        <a href="">
+                            <i class="fa fa-instagram"></i>
+                            <span>Instagram</span>
+                        </a>
+                        <a href="">
+                            <i class="fa fa-pinterest"></i>
+                            <span>Pinterest</span>
+                        </a>
+                    </div>
+                    <hr>
+
+                    <!--------------------POLICY----------------------->
+
+                    <div class="fcol-2">
+                        <h3>POLICY</h3>
+                        <a href="">PRIVACY POLICY</a>
+                        <a href="">RETURN POLICY</a>
+                        <a href="">TERMS & CONDITIONS</a>
+                    </div>
+                    <hr>
+
+                    <!--------------------COPYRIGHT----------------------->
+
+                    <div class="copyright">
+                        <i class="fa fa-copyright">
+                            <span>Anmol_Mobile_Shop.com All rights reserved</span>
+                        </i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

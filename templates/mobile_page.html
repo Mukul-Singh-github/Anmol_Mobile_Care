@@ -1,0 +1,111 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <title>Mobiles</title>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="{% static "css/style_m.css" %}">
+    </head>
+    <body>
+      {% include 'navbar.html' %}
+        <div class="super-container" style="margin-top:50px;">
+            <div class="left-container">
+                <section>
+                    <div class="header-container">
+                        <span class="filter-header">FILTERS</span>
+                        <a class="clear-header" href="/mobilePage/" >Clear All</a>
+                    </div>
+                    <hr>
+                    <div class="brands-container">
+                        <div class="dropdown">
+                            <a onclick="myFunction()" class="dropbtn">Brands <i class="fa fa-caret-square-o-down"></i></a>
+                                <div id="myDropdown" class="dropdown-content">
+                                  {% for subCat in subCats %}
+                                    <a href="/mobilePageByBrand/{{subCat.id}}">{{subCat.brand_name}}</a>
+                                  {% endfor %}
+                                </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="price-container">
+                        <span class="price-header">Price</span>
+                        <ul class="price-list">
+                            <li>
+                                <a href="/mobilePageByPrice/{{sub_cat_id}}/1000/10000">Rs.1000-10000 </a>
+                            </li>
+                            <li>
+                                <a href="/mobilePageByPrice/{{sub_cat_id}}/10000/20000">Rs.10000-20000 </a>
+                            </li>
+                            <li>
+                                <a href="/mobilePageByPrice/{{sub_cat_id}}/20000/50000">Rs.20000-50000 </a>
+                            </li>
+                            <li>
+                                <a href="/mobilePageByPrice/{{sub_cat_id}}/50000/100000">Rs.50000-100000 </a>
+                            </li>
+                            <li>
+                                <a href="/mobilePageByPrice/{{sub_cat_id}}/50000/1000000">Greater than 100000</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <hr>
+                    <div class="type-container">
+                        <span class="type-header">Type</span>
+                        <ul class="type-list">
+                            <li>
+                                <a href="#">Featured Phones</a>
+                            </li>
+                            <li>
+                                <a href="#">Android Phones</a>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+            <div class="right-container">
+                <div class="Products">
+                    <div class="row">
+                      {% for mobile in mobiles %}
+                        <div class="col-6" style="flex: 0 0 30%">
+                            <a href="/product/product_detail/{{mobile.id}}/{{mobile.category_id}}">
+                                <img src="{{mobile.img.img1.url}}"  >
+                                <h4>{{mobile.brand}} {{mobile.model_no}}</h4>
+                                <p> Rs. {{mobile.price}}/-</p>
+                            </a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+        <script>
+                /* When the user clicks on the button,toggle between hiding and showing the dropdown content */
+        function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        // Close the dropdown menu if the user clicks outside of it
+        window.onclick = function(event) {
+        if (!event.target.matches('.dropbtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+            }
+            }
+        }
+        }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,195 @@
+body{
+    background-color: white;
+    margin-top: 60px;
+}
+.super-pcontainer{
+    display: flex;
+    flex-wrap:wrap;
+    justify-content:space-around;
+    margin-bottom: 5%;
+}
+
+/*-------------------------IMAGE CONTAINER---------------------------*/
+
+.img-pcontainer{
+    width: 40%;
+    position: sticky;
+    position: -webkit-sticky;
+    right: 100px;
+    top: 100px;
+}
+.pimg{
+    margin-left: 12%;
+    min-width: 250px;
+}
+  /* Hide the images by default */
+.mySlides {
+    display: none;
+    margin-bottom: 5%;
+}
+  /* Add a pointer when hovering over the thumbnail images */
+.cursor {
+    cursor: pointer;
+}
+  /* Next & previous buttons */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 40%;
+    width: auto;
+    padding: 8px;
+    margin-top: -50px;
+    color: #f64352;
+    font-weight: bold;
+    font-size: 30px;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    -webkit-user-select: none;
+    transition: 00.5s;
+}
+  /* Position the "next button" to the right */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+  /* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+    background-color: rgba(1, 1, 22);
+    font-size: 35px;
+    color: white;
+    transition: 00.5s;
+}
+  /* Number text (1/3 etc) */
+.numbertext {
+    color: rgb(1,1,22);
+    font-size: 14px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+}
+  /* Six columns side by side */
+.column {
+    float: left;
+    width: 16.66%;
+}
+  /* Add a transparency effect for thumnbail images */
+.demo {
+    opacity: 0.6;
+}
+.active, .demo:hover {
+    opacity: 1;
+}
+
+  /*-------------------------DETAILS CONTAINER---------------------------*/
+
+.detail-pcontainer{
+    width: 58%;
+    font-family: 'Poppins', sans-serif;
+  }
+  /*TITLE*/
+.ptitle{
+    color: #f64352;
+    font-size: 40px;
+    font-weight: 500;
+}
+.hr{
+    border: 1px solid black;
+}
+  /*DESCRIPTION*/
+.pdescription{
+    font-size: 14px;
+    color: black;
+}
+  /*PRICE*/
+.price{
+    margin-top: 4%;
+    color: #f64352;
+    font-size: 32px;
+}
+  /*BUTTONS*/
+.cartbtn, .buybtn{
+    margin-top: 2%;
+    padding: 10px 20px;
+    background-color: white;
+    margin-left: 5%;
+    color: #f64352;
+    font-size: 20px;
+    font-weight: 700;
+    transition: 00.5s;
+    border: 1% solid black;
+    border-radius: 10px;
+    margin-bottom: 5%;
+}
+.cartbtn:hover, .buybtn:hover{
+    padding: 12px 22px;
+    transition: 00.5s;
+    background-color: rgb(1,1,22);
+    color: white;
+}
+  /*AVAILABLE OFFER*/
+.offer{
+    margin-top: 5%;
+    font-size: 24px;
+    color: black;
+}
+.offer-list{
+    color: black;
+    font-size: 14px;
+}
+  /*FEATURES TABLE*/
+table{
+    margin-top: 0%;
+    color: black;
+    font-size: 14px;
+}
+td{
+    padding-left: 5%;
+    width: 50%;
+    font-size: 14px;
+}
+.thead{
+    font-size: 16px;
+    margin-left: 5%;
+    padding: 5px 30px 15px 10px;
+    font-family: 'Poppins', sans-serif;
+}
+.hr1{
+    border: 3px solid #f64352;
+}
+
+  /*-------------------------SPECIFICATIONS CONTAINER---------------------------*/
+
+.Specification-container{
+    width: 58%;
+    margin-left: 42%;
+    padding-top: 0%;
+}
+h2{
+    font-size: 32px;
+    color: black;
+    margin-bottom: 5%;
+}
+h4{
+    color: black;
+    text-decoration: underline;
+    font-size: 22px;
+    margin-bottom: 3%;
+}
+
+  /*-------------------------RATING CONTAINER---------------------------*/
+
+.rating-container{
+    width: 60%;
+    margin-left: 42%;
+}
+.rating{
+    margin-top: 3%;
+    font-size: 48px;
+    color: black;
+}
+
+  /*-------------------------My Correction---------------------------*/
+.dropbtn{
+  margin-left: 20px;
+  font-size: 18px;
+}

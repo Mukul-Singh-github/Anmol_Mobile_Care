@@ -1,0 +1,200 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <title>Bluetooth Headphones</title>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="{% static "css/style_products.css" %}">
+        <link rel="stylesheet" href="{% static "css/style_nav.css" %}">
+    </head>
+    <body>
+      {% include 'navbar.html' %}
+        <div class="super-pcontainer" style="margin-top:90px">
+
+            <!----------------------IMAGE CONTAINER----------------------->
+
+            <div class="img-pcontainer">
+                <!-- Full-width images with number text -->
+                <div class="mySlides">
+                    <div class="numbertext">1 / 4</div>
+                    <img src="{{images.img1.url}}" class="pimg">
+                </div>
+                <!-- IMAGE SLIDER -->
+                <div class="mySlides">
+                    <div class="numbertext">2 / 4</div>
+                    <img src="{{images.img2.url}}" class="pimg">
+                </div>
+
+                <div class="mySlides">
+                    <div class="numbertext">3 / 4</div>
+                    <img src="{{images.img3.url}}" class="pimg">
+                </div>
+
+                <div class="mySlides">
+                    <div class="numbertext">4 / 4</div>
+                    <img src="{{images.img4.url}}" class="pimg">
+                </div>
+
+                <!-- <div class="mySlides">
+                    <div class="numbertext">5 / 6</div>
+                    <img src="images/bluetooth headphones-5.jpeg" class="pimg">
+                </div>
+
+                <div class="mySlides">
+                    <div class="numbertext">6 / 6</div>
+                    <img src="images/bluetooth headphones-6.jpeg" class="pimg">
+                </div> -->
+
+                <!-- Next and previous buttons -->
+                <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-chevron-left"></i></a>
+                <a class="next" onclick="plusSlides(1)"><i class="fa fa-chevron-right"></i></a>
+
+                <!-- Thumbnail images -->
+                <div class="row1">
+                    <div class="column">
+                    <img class="demo cursor" src="{{images.img1.url}}" style="width:70%" onclick="currentSlide(1)">
+                    </div>
+                    <div class="column">
+                    <img class="demo cursor" src="{{images.img2.url}}" style="width:70%" onclick="currentSlide(2)">
+                    </div>
+                    <div class="column">
+                    <img class="demo cursor" src="{{images.img3.url}}" style="width:70%" onclick="currentSlide(3)">
+                    </div>
+                    <div class="column">
+                    <img class="demo cursor" src="{{images.img4.url}}" style="width:70%" onclick="currentSlide(4)">
+                    </div>
+                    <!-- <div class="column">
+                    <img class="demo cursor" src="{{images.img.img1}}" style="width:70%" onclick="currentSlide(5)">
+                    </div>
+                    <div class="column">
+                    <img class="demo cursor" src="{{images.img.img1}}" style="width:70%" onclick="currentSlide(6)">
+                    </div>-->
+                </div>
+            </div>
+
+                <!---------------------DETAIL CONTAINER------------------------>
+
+            <div class="detail-pcontainer">
+                <!-- TITLE -->
+                <h1 class="ptitle">{{headphone.brand}} {{headphone.model_no}}</h1>
+                <hr class="hr">
+                <!-- DESCRIPTION -->
+                <p class="pdescription">Product Description : {{headphone.description}}</p>
+                <!-- PRICE -->
+                <p class="price">Rs. {{headphone.price}}</p>
+                <!-- BUTTONS -->
+                <button data-item_id={{headphone.id}} data-action="add" class="cartbtn">Add to cart</button>
+                <button data-item_id={{headphone.id}} data-action="buy" class="buybtn cartbtn">Buy Now</button>
+                <!-- OFFERS -->
+                <h4 class="offer">Available Offers</h4>
+                <ul class="offer-list">
+                    <li>Bank Offer₹20 Off on first prepaid transaction using UPI payments, minimum order value ₹750/-<a href="">T&C</a></li>
+                    <li>Bank Offer₹20 Off on first prepaid transaction using RuPay debit card, minimum order value ₹750/- <a href="">T&C</a></li>
+                </ul>
+                <hr class="hr1">
+            </div>
+            <!--------------------SPECIFICATION CONTAINER------------------------->
+            <div class="Specification-container">
+                <h2>Specifications</h2>
+                    <table>
+                    <tr>
+                        <th class="thead">Brand</th>
+                        <td>{{headphone.brand}}</td>
+                    </tr>
+                    <tr>
+                        <th class="thead">Model</th>
+                        <td>{{headphone.model_no}}</td>
+                    </tr>
+                    <tr>
+                        <th class="thead">Headphone Type</th>
+                        <td>{{headphone.type}}</td>
+                    </tr>
+                    <tr>
+                        <th class="thead">Connector Type</th>
+                        <td>{{headphone.connector_size}}</td>
+                    </tr>
+                    <tr>
+                        <th class="thead">Drive Size</th>
+                        <td>{{headphone.driver_size}}</td>
+                    </tr>
+                    <tr>
+                        <th class="thead">With Mic</th>
+                        <td>{{headphone.with_mic}}</td>
+                    </tr>
+                    <tr>
+                        <th class="thead">Connectivity</th>
+                        <td>{{headphone.connectivity}}</td>
+                    </tr>
+                    <tr>
+                        <th class="thead">Bluetooth Range</th>
+                        <td>{{headphone.bluetooth_range}}</td>
+                    </tr>
+                    <tr>
+                        <th class="thead">Charging Time</th>
+                        <td>{{headphone.charging_time}}</td>
+                    </tr>
+                    <tr>
+                        <th class="thead">Play Time</th>
+                        <td>{{headphone.play_time}}</td>
+                    </tr>
+                    <tr>
+                        <th class="thead">Domestic Warranty</th>
+                        <td>{{headphone.warranty}}</td>
+                    </tr>
+                    </table>
+                    <hr class="hr1">
+            </div>
+
+            <!----------------------RATING CONTAINER----------------------->
+
+            <div class="rating-container">
+                <h2>Ratings</h2>
+                <p class="rating">{{headphone.rate}} <i class="fa fa-star"></i></p>
+            </div>
+        </div>
+
+<!--------------------------SCRIPT-------------------------------->
+        <script type="text/javascript" src="{% static "js/cart.js" %}"></script>
+        <script>
+            //Image Slider
+            var slideIndex = 1;
+            showSlides(slideIndex);
+
+            function plusSlides(n) {
+            showSlides(slideIndex += n);
+            }
+
+            function currentSlide(n) {
+            showSlides(slideIndex = n);
+            }
+
+            function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("demo");
+            var captionText = document.getElementById("caption");
+            if (n > slides.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = slides.length}
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex-1].style.display = "block";
+            dots[slideIndex-1].className += " active";
+            captionText.innerHTML = dots[slideIndex-1].alt;
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <title>Accessories</title>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="{% static "css/style_m.css" %}">
+    </head>
+    <body>
+      {% include 'navbar.html' %}
+        <div class="super-container">
+            <div class="left-container">
+                <section>
+                    <div class="header-container">
+                        <span class="filter-header">FILTERS</span>
+                        <span class="clear-header">Clear All</span>
+                    </div>
+                    <hr>
+                    <!-- <div class="categories-container">
+                        <span class="categories-header">Categories</span>
+                        <ul class="categories-list">
+                          {% for category in categories %}
+                            <li>
+                                <a href="#">{{category.name}}</a>
+                            </li>
+                          {% endfor %}
+                        </ul>
+                    </div> -->
+                    <hr>
+                    <div class="price-container">
+                        <span class="price-header1">Price</span>
+                        <ul class="price-list">
+                            <li>
+                                <a href="/accessoryPageByPrice/{{cat_id}}/100/500">Rs.100-500 </a>
+                            </li>
+                            <li>
+                                <a href="/accessoryPageByPrice/{{cat_id}}/500/1000">Rs.501-1000 </a>
+                            </li>
+                            <li>
+                                <a href="/accessoryPageByPrice/{{cat_id}}/1000/2500">Rs.1000-2500</a>
+                            </li>
+                            <li>
+                                <a href="/accessoryPageByPrice/{{cat_id}}/2500/250000">Rs.Greater Than 2500</a>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+            <div class="right-container">
+                <div class="Products">
+                    <div class="row">
+                      {% for accessory_product in accessory %}
+                        <div class="col-6" style="flex: 0 0 30%">
+                            <a href="/product/product_detail/{{accessory_product.id}}/{{accessory_product.category_id}}">
+                                <img class="accessory_page-img" src="{{accessory_product.img.img1.url}}">
+                                <h4>{{accessory_product.brand}} {{accessory_product.model_no}}</h4>
+                                <p>Rs. {{accessory_product.price}}/-</p>
+                            </a>
+                        </div>
+                        {% endfor %}
+                      </div>
+                    </div>
+                  </div>
+        <script>
+                /* When the user clicks on the button,toggle between hiding and showing the dropdown content */
+        function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        // Close the dropdown menu if the user clicks outside of it
+        window.onclick = function(event) {
+        if (!event.target.matches('.dropbtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+            }
+            }
+        }
+        }
+        </script>
+    </body>
+</html>

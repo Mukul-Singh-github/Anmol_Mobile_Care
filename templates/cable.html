@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+    <title>Cables</title>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="style_products.css">
+    </head>
+    <body>
+        <div class="super-pcontainer">
+
+            <!----------------------IMAGE CONTAINER----------------------->
+
+            <div class="img-pcontainer">
+                <!-- Full-width images with number text -->
+                <div class="mySlides">
+                    <div class="numbertext">1 / 4</div>
+                    <img src="images/Cable-1.jpeg" class="pimg">
+                </div>
+                <!-- IMAGE SLIDER -->
+                <div class="mySlides">
+                    <div class="numbertext">2 / 4</div>
+                    <img src="images/Cable-2.jpeg" class="pimg">
+                </div>
+
+                <div class="mySlides">
+                    <div class="numbertext">3 / 4</div>
+                    <img src="images/Cable-3.jpeg" class="pimg">
+                </div>
+
+                <div class="mySlides">
+                    <div class="numbertext">4 / 4</div>
+                    <img src="images/Cable-4.jpeg" class="pimg">
+                </div>
+
+                <!-- Next and previous buttons -->
+                <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-chevron-left"></i></a>
+                <a class="next" onclick="plusSlides(1)"><i class="fa fa-chevron-right"></i></a>
+
+                <!-- Thumbnail images -->
+                <div class="row1">
+                    <div class="column">
+                    <img class="demo cursor" src="images/Cable-1.jpeg" style="width:70%" onclick="currentSlide(1)">
+                    </div>
+                    <div class="column">
+                    <img class="demo cursor" src="images/Cable-2.jpeg" style="width:70%" onclick="currentSlide(2)">
+                    </div>
+                    <div class="column">
+                    <img class="demo cursor" src="images/Cable-3.jpeg" style="width:70%" onclick="currentSlide(3)">
+                    </div>
+                    <div class="column">
+                    <img class="demo cursor" src="images/Cable-4.jpeg" style="width:70%" onclick="currentSlide(4)">
+                    </div>
+                </div>
+            </div>
+
+                <!---------------------DETAIL CONTAINER------------------------>
+
+            <div class="detail-pcontainer">
+                <!-- TITLE -->
+                <h1 class="ptitle">OnePlus Warp Charge 1.5 m USB Type C Cable</h1>
+                <hr class="hr">
+                <!-- DESCRIPTION -->
+                <p class="pdescription">Compatible with OnePlus 3/ 3T/ 5/ 5T/ 6/ 6T/ 7/ 7 Pro/ 7T<br> Product Description : Bring home this OnePlus data cable that is compatible with most OnePlus (3/3T/5/5T/6/6T/7/7 Pro/7T) smartphones that feature Type-C charging ports. This cable is 100 cm long and serves the dual purpose of charging as well as data transfer.</p>
+                <!-- PRICE -->
+                <p class="price">Rs. 1099</p>
+                <!-- BUTTONS -->
+                <button class="cartbtn">Add to cart</button>
+                <button class="buybtn">Buy Now</button>
+                <!-- OFFERS -->
+                <h4 class="offer">Available Offers</h4>
+                <ul class="offer-list">
+                    <li>Bank Offer10% off on SBI Credit Card, up to ₹1250. On orders of ₹5000 and above<a href="">T&C</a></li>
+                    <li>Bank Offer10% off on SBI Credit Card EMI, up to ₹1500. On orders of ₹5000 and above<a href="">T&C</a></li>
+                </ul>
+                <hr class="hr1">
+            </div>
+            <!--------------------SPECIFICATION CONTAINER------------------------->
+            <div class="Specification-container">
+                <h2>Specifications</h2>
+                    <table>
+                    <tr>
+                        <th class="thead">Brand</th>
+                        <td>OnePlus</td>
+                    </tr>
+                    <tr>
+                        <th class="thead">Type</th>
+                        <td>USB</td>
+                    </tr>
+                    <tr>
+                        <th class="thead">Tranfer Speed</th>
+                        <td>480 Mbps Speed</td>
+                    </tr>
+                    <tr>
+                        <th class="thead">Connector 1</th>
+                        <td>USB</td>
+                    </tr>
+                    <tr>
+                        <th class="thead">Connector 2</th>
+                        <td>Micro USB</td>
+                    </tr>
+                    <tr>
+                        <th class="thead">Length</th>
+                        <td>1.6 m</td>
+                    </tr>
+                    <tr>
+                        <th class="thead">Suitable For</th>
+                        <td>Universal</td>
+                    </tr>
+                    <tr>
+                        <th class="thead">Max Current Rating</th>
+                        <td>2.4 A</td>
+                    </tr>
+                    <tr>
+                        <th class="thead">Domestic Warranty</th>
+                        <td>1 Year</td>
+                    </tr>
+                    </table>
+                    <hr class="hr1">
+            </div>
+
+            <!----------------------RATING CONTAINER----------------------->
+
+            <div class="rating-container">
+                <h2>Ratings</h2>
+                <p class="rating">4.3 <i class="fa fa-star"></i></p>
+            </div>
+        </div>
+
+<!--------------------------SCRIPT-------------------------------->
+
+        <script>
+            //Image Slider
+            var slideIndex = 1;
+            showSlides(slideIndex);
+
+            function plusSlides(n) {
+            showSlides(slideIndex += n);
+            }
+
+            function currentSlide(n) {
+            showSlides(slideIndex = n);
+            }
+
+            function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("demo");
+            var captionText = document.getElementById("caption");
+            if (n > slides.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = slides.length}
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex-1].style.display = "block";
+            dots[slideIndex-1].className += " active";
+            captionText.innerHTML = dots[slideIndex-1].alt;
+            }
+        </script>
+    </body>
+</html>

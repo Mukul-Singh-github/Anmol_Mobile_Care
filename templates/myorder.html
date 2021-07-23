@@ -1,0 +1,201 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <title>Cart</title>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <!--------------------------CSS------------------------>
+
+        <style>
+            html a{
+                font-size: 18px;
+            }
+            body{
+                background-color: white;
+                margin-top: 60px;
+            }
+            .Cart{
+                display: flex;
+                flex-wrap:wrap;
+                justify-content:space-around;
+                margin-bottom: 10%;
+                margin-top: 9%;
+            }
+            .left-container{
+                width: 1000px;
+                box-shadow: 0px 0px 5px 1px rgb(1, 1, 22);
+                margin-left: 3%;
+            }
+            table{
+                width: 100%;
+                border-collapse: collapse;
+            }
+            th{
+                text-align: left;
+                padding: 5px;
+                background-color: #f64352;
+                color: white;
+                font-family: 'Poppins', sans-serif;
+                font-size: 22px;
+                font-weight: 600;
+            }
+            td{
+                padding: 10px 5px;
+                text-align: left;
+            }
+            td input{
+                padding: 5px;
+                width: 55px;
+                height: 30px;
+            }
+            td img{
+                width: 100px;
+                height: 200px;
+                margin-right: 20px;
+            }
+            .up-down{
+              height: 20px;
+              width: 20px;
+            }
+            td a:hover{
+                font-size: 18px;
+                transition: 0.5s;
+                font-weight: 600;
+            }
+            .cart-info{
+                display: flex;
+                flex-wrap: wrap;
+                margin-left: 20px;
+                margin-top: 20px;
+            }
+            .right-container{
+                box-shadow: 0px 0px 5px 1px rgb(1, 1, 22);
+                width: 400px;
+                font-family: 'Poppins', sans-serif;
+                position: sticky;
+                position: -webkit-sticky;
+                align-self: flex-start;
+                left: 150px;
+                top: 50px;
+            }
+            .total-amount{
+                text-align: center;
+                padding: 8px;
+                background-color: #f64352;
+                color: white;
+                font-family: 'Poppins', sans-serif;
+                font-size: 24px;
+                font-weight: 600;
+            }
+            .price-data{
+                font-size: 16px;
+                font-family: 'Poppins', sans-serif;
+                color: rgb(1, 1, 22);
+            }
+            .orderbtn{
+                margin-top: 2%;
+                padding: 10px 20px;
+                background-color: white;
+                margin-left: 30%;
+                color: #f64352;
+                font-size: 22px;
+                font-weight: 600;
+                transition: 00.5s;
+                border: 2px solid black;
+                border-radius: 10px;
+                margin-bottom: 5%;
+            }
+            .orderbtn:hover{
+                padding: 12px 22px;
+                transition: 00.5s;
+                background-color: rgb(1,1,22);
+                color: white;
+            }
+            .dropbtn{
+              margin-left: 20px;
+            }
+        </style>
+    </head>
+    <body>
+      {% include "navbar.html" %}
+        <div class="Cart">
+            <div class="cart-container left-container">
+                <table>
+                    <tr>
+                        <th style="padding-left: 30px;">IMAGE</th>
+                        <th>PRODUCT</th>
+                        <!-- <th>QUANTITY</th> -->
+                        <th>STATUS</th>
+                        <th>ORDER DATE</th>
+                    </tr>
+                    {% for placed_order in placed_orders %}
+                    <tr>
+                        <td>
+                            <div class="cart-info">
+                                <img src="{{placed_order.product.img.img1.url}}">
+                                <!-- <div style="margin-top: 30px;">  </div> -->
+                            </div>
+                        </td>
+                        <td>
+                          <p style="font-size: 18px; font-family: 'Poppins', sans-serif;">{{placed_order.product.brand}} {{placed_order.product.model_no}}</p>
+                        </td>
+
+                        <!-- <td style="font-size:20px;margin-left:20px;">
+                          {{placed_order.product.quantity}}
+                        </td> -->
+                        <td style="font-size:18px">
+                          {{placed_order.order_status}}
+                        </td>
+                        <td style="font-size:18px">
+                          {{placed_order.order_date}}
+                        </td>
+
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+        <script src="{% static "js/cart.js" %}"></script>
+        <script src="https://www.paypal.com/sdk/js?client-id=AQJF9G02xXdGpKx4sC60FPQKGs-rlIZz_8B_xrMO1adfUNxEVfBPN6o7YXOLTUTS4YjAZiBFUGYJeg7W&currency=USD"></script>
+
+<script>
+    // Render the PayPal button into #paypal-button-container
+    paypal.Buttons({
+
+        // Set up the transaction
+        createOrder: function(data, actions) {
+            return actions.order.create({
+                purchase_units: [{
+                    amount: {
+                        value: '{{order_obj.get_total_price}}'
+                    }
+                }]
+            });
+        },
+
+        // Finalize the transaction
+        onApprove: function(data, actions) {
+            return actions.order.capture().then(function(details) {
+                // Show a success message to the buyer
+                alert('Transaction completed by ' + details.payer.name.given_name + '!');
+            });
+        }
+
+
+    }).render('#paypal-button-container');
+</script>
+    </body>
+</html>

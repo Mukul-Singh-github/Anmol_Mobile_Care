@@ -1,0 +1,275 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <title>Login/Register</title>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <!------------------------CSS------------------------>
+
+        <style>
+        body{
+            background-color: white;
+            margin-top: 30px;
+        }
+
+        /*Form container*/
+        .form-box{
+            width: 450px;
+            height: auto;
+            position: relative;
+            margin-left: 33%;
+            background: white;
+            /*border: 2px solid rgb(1, 1, 22);*/
+            padding: 5px;
+            box-shadow: 0px 0px 5px 1px rgb(1, 1, 22);
+        }
+
+        /*Top buttons*/
+        .buttons{
+            width: 250px;
+            position: relative;
+            margin: 15px auto;
+            box-shadow: 0 0 5px 2px;
+            border-radius: 30px;
+        }
+
+        /*Login button*/
+        .toggle-btn1{
+            padding: 10px 28px;
+            background: transparent;
+            cursor: pointer;
+            border: 0;
+            position: relative;
+            outline: none;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            font-size: 17px;
+            font-weight: 600;
+        }
+
+        /*Register button*/
+        .toggle-btn2{
+            padding: 10px 28px;
+            background: transparent;
+            cursor: pointer;
+            border: 0;
+            position: relative;
+            outline: none;
+            color: #f64352;
+            font-family: 'Poppins', sans-serif;
+            font-size: 17px;
+            font-weight: 600;
+        }
+        .toggle-btn2 a{
+            color: #f64352;
+            text-decoration: none;
+        }
+
+        /*buttons styling*/
+        #btn{
+            top: 0;
+            left: 0;
+            position: absolute;
+            width: 110px;
+            height: 100%;
+            background: #f64352;
+            color: rgb(1, 1, 22);
+            border-radius: 30px;
+            transition: 0.5s;
+        }
+
+        /*Social buttons*/
+        .socials{
+            text-align: center;
+            text-decoration: none;
+            margin: 35px auto;
+        }
+        .fa{
+            width: 40px;
+            height: 40px;
+            margin: 0 15px;
+            font-size: 28px;
+            text-align: center;
+            transition: 0.5s;
+            cursor: pointer;
+            border-radius: 50%;
+            padding-top: 5.5px;
+        }
+        .fa:hover{
+            opacity: 1;
+            text-decoration: none;
+        }
+        .fa-facebook{
+            background-color: #3B5998;
+            color: white;
+        }
+        .fa-facebook:hover{
+            color: #3B5998;
+            background-color: white;
+        }
+        .fa-twitter{
+            background-color: #55ACEE;
+            color: white;
+        }
+        .fa-twitter:hover{
+            color: #55ACEE;
+            background-color: white;
+        }
+        .fa-google{
+            background-color: #dd4b39;
+            color: white;
+        }
+        .fa-google:hover{
+            color: #dd4b39;
+            background-color: white;
+        }
+
+        /*Input*/
+        .input-container{
+            display: flex;
+            width: 100%;
+            margin-bottom: 30px;
+        }
+        .input-field{
+            width: 75%;
+            padding: 10px;
+            outline: none;
+            border-top: 0;
+            border-left: 0;
+            border-right: 0;
+            border-bottom: 1px solid rgb(1, 1, 22);
+            background: transparent;
+            font-family: 'Poppins', sans-serif;
+        }
+        .input-field:focus{
+            border: 1px solid rgb(1,1,22);
+        }
+        .icon{
+            background-color: #f64352;
+            color:white;
+            width: 50px;
+            height: 50px;
+            border-radius: 10%;
+            border: 2px solid white;
+            text-align: center;
+        }
+        .psw{
+            font-size: 16px;
+            font-family: 'Poppins', sans-serif;
+            margin-left: 5%;
+            font-weight: 600;
+            transition: 0.5s;
+        }
+        .submit{
+            background-color: #f64352;
+            color: white;
+            padding: 10px 28px;
+            border-radius: 30px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            opacity: 1;
+            margin-left: 32%;
+            font-family: 'Poppins', sans-serif;
+            font-size: 17px;
+            font-weight: 600;
+            transition: 0.5s;
+        }
+        .submit:hover{
+            background-color: rgb(1, 1, 22);
+            color: white;
+        }
+        hr{
+            border: 0.5px solid rgb(1, 1, 22);
+            width: 90%;
+        }
+        p{
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            font-size: 17px;
+            font-weight: 600;
+            margin-top: 5%;
+        }
+
+        .error-mssg{
+          text-align: center;
+          width:400px;
+          margin-left:25px;
+        }
+        </style>
+
+    </head>
+
+    <!----------------------BODY------------------------>
+    <body>
+        <div class="form-box">
+            <div class="buttons">
+                <div id="btn"></div>
+                <button type="button" class="toggle-btn1">Log  In</button>
+                <button type="button" class="toggle-btn2"><a href="accounts/signup">Signup</a></button>
+            </div>
+
+            <!-----------------------LOGIN--------------------------->
+            <div class="alert-box">
+              {% if messages %}
+              {% for message in messages %}
+              <div class="alert alert-danger m-9 error-mssg" role="alert" >{{message}}</div>
+              {% endfor %}
+              {% else %}
+              <div class="socials">
+                <a href="#" class="fa fa-facebook"></a>
+                <a href="#" class="fa fa-twitter"></a>
+                <a href="#" class="fa fa-google"></a>
+              </div>
+              {% endif %}
+            </div>
+
+            <!-------------------------LOGIN FORM--------------------------->
+
+            <form id="logForm" action="login" method="POST">
+              {% csrf_token %}
+
+              <!-- USERNAME -->
+                <div class="input-container">
+                    <i class="fa fa-user icon"></i>
+                    <input class="input-field" type="text" name="username" placeholder="Username" required>
+                </div>
+
+                <!--EMAIL-->
+                <div class="input-container">
+                    <i class="fa fa-user icon"></i>
+                    <input class="input-field" type="email" name="email" placeholder="Email" required>
+                </div>
+
+                <!--PASSWORD-->
+                <div class="input-container">
+                    <i class="fa fa-key icon"></i>
+                    <input class="input-field" type="password" name="password" placeholder="Password" required>
+                </div>
+
+                <!--FORGOT PASSWORD-->
+                <span class="psw"><a href="#">Forgot password?</a></span>
+
+                <!--LOGIN BUTTON-->
+                <button type="submit" class="submit">Login</button>
+                <hr>
+
+                <!--TEXT-->
+                <p>Don't have an account?<br>Click on Register button above</p>
+            </form>
+        </div>
+    </body>
+</html>

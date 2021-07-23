@@ -1,0 +1,130 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <title>General Products</title>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="{% static "css/style_products.css" %}">
+    </head>
+    <body>
+        <div class="super-pcontainer">
+
+            <!----------------------IMAGE CONTAINER----------------------->
+
+            <div class="img-pcontainer">
+                <!-- Full-width images with number text -->
+                <div class="mySlides">
+                    <div class="numbertext">1 / 4</div>
+                    <img src="{{images.img1.url}}" class="pimg" height="400px" width="350px">
+                </div>
+                <!-- IMAGE SLIDER -->
+                <div class="mySlides">
+                    <div class="numbertext">2 / 4</div>
+                    <img src="{{images.img2.url}}" class="pimg" height="400px" width="350px">
+                </div>
+
+                <div class="mySlides">
+                    <div class="numbertext">3 / 4</div>
+                    <img src="{{images.img3.url}}" class="pimg" height="450px" width="200px">
+                </div>
+
+                <div class="mySlides">
+                    <div class="numbertext">4 / 4</div>
+                    <img src="{{images.img4.url}}" class="pimg" height="400px" width="300px">
+                </div>
+
+                <!-- Next and previous buttons -->
+                <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-chevron-left"></i></a>
+                <a class="next" onclick="plusSlides(1)"><i class="fa fa-chevron-right"></i></a>
+
+                <!-- Thumbnail images -->
+                <div class="row1">
+                    <div class="column">
+                    <img class="demo cursor" src="{{images.img1.url}}" style="width:70%" onclick="currentSlide(1)">
+                    </div>
+                    <div class="column">
+                    <img class="demo cursor" src="{{images.img2.url}}" style="width:70%" onclick="currentSlide(2)">
+                    </div>
+                    <div class="column">
+                    <img class="demo cursor" src="{{images.img3.url}}" style="width:70%" onclick="currentSlide(3)">
+                    </div>
+                    <div class="column">
+                    <img class="demo cursor" src="{{images.img4.url}}" style="width:70%" onclick="currentSlide(4)">
+                    </div>
+                </div>
+            </div>
+
+                <!---------------------DETAIL CONTAINER------------------------>
+
+            <div class="detail-pcontainer">
+                <!-- TITLE -->
+                <h1 class="ptitle">{{mobile.brand}} {{mobile.type}}</h1>
+                <hr class="hr">
+                <!-- DESCRIPTION -->
+                <p class="pdescription">{{mobile.description}}</p>
+                <!-- PRICE -->
+                <p class="price">Rs. {{mobile.price}}</p>
+                <!-- BUTTONS -->
+                <button data-item_id={{charger.id}} data-action="add"  class="cartbtn">Add to cart</button>
+                <button data-item_id={{charger.id}} data-action="buy"  class="buybtn cartbtn">Buy Now</button>
+                <hr class="hr1">
+            </div>
+            <!--------------------SPECIFICATION CONTAINER------------------------->
+            <div class="Specification-container">
+                <h2>Specifications</h2>
+                    <table>
+                    <tr>
+                        <th class="thead">Brand</th>
+                        <td>{{mobile.brand}}</td>
+                    </tr>
+                    <tr>
+                        <th class="thead">Model</th>
+                        <td>{{mobile.model_no}}</td>
+                    </tr>
+                    <tr>
+                        <th class="thead">Material</th>
+                        <td>{{mobile.material}}</td>
+                    </tr>
+                    <tr>
+                        <th class="thead">Type</th>
+                        <td>{{mobile.type}}</td>
+                    </tr>
+                    <tr>
+                        <th class="thead">Foldable</th>
+                        <td>{{mobile.flexible}}</td>
+                    </tr>
+                    <tr>
+                        <th class="thead">Compatible Brand</th>
+                        <td>{{mobile.compatible_brand}}</td>
+                    </tr>
+                    <tr>
+                        <th class="thead">Warranty</th>
+                        <td>{{mobile.warranty}}</td>
+                    </tr>
+                    </table>
+                    <hr class="hr1">
+            </div>
+
+            <!----------------------RATING CONTAINER----------------------->
+
+            <div class="rating-container">
+                <h2>Ratings</h2>
+                <p class="rating">{{mobile.rate}} <i class="fa fa-star"></i></p>
+            </div>
+        </div>
+
+<!--------------------------SCRIPT-------------------------------->
+        <!--Image Slider -->
+        <script src="{% static "js/product_slider.js" %}"></script>
+    </body>
+</html>

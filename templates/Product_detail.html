@@ -1,0 +1,363 @@
+ {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="{% static "css/style_m.css" %}">
+    </head>
+    <body>
+        <div class="super-pcontainer">
+
+            <!----------------------IMAGE CONTAINER----------------------->
+
+            <div class="img-pcontainer">
+                <!-- Full-width images with number text -->
+                <!-- <div class="mySlides"> -->
+                    <div class="numbertext"></div>
+                    <!-- <img src="Products/Realme Narzo.jpeg" class="pimg"> -->
+                    <img style="margin-left:130px" class="mySlides" src="{{images.img1.url}}" class="pimg" height="450px" width="200px">
+                <!-- </div> -->
+
+                <!-- IMAGE SLIDER -->
+
+                <!-- <div class="mySlides"> -->
+                    <div class="numbertext"></div>
+                    <img style="margin-left:130px" class="mySlides" src="{{images.img2.url}}" class="pimg" height="450px" width="200px">
+                <!-- </div> -->
+
+                <!-- <div class="mySlides"> -->
+                    <div class="numbertext"></div>
+                    <img style="margin-left:130px" class="mySlides" src="{{images.img3.url}}" class="pimg" height="450px" width="200px">
+                <!-- </div> -->
+
+                <!-- <div class="mySlides"> -->
+                    <div class="numbertext"></div>
+                    <img style="margin-left:130px" class="mySlides" src="{{images.img4.url}}" class="pimg" height="450px" width="200px">
+                <!-- </div> -->
+
+                <!-- <div class="mySlides"> -->
+                    <div class="numbertext"></div>
+                    <img style="margin-left:130px" class="mySlides" src="{{images.img5.url}}" class="pimg" height="450px" width="200px">
+                <!-- </div> -->
+
+                <!-- <div class="mySlides"> -->
+                    <div class="numbertext"></div>
+                    <img style="margin-left:130px" class="mySlides" src="{{images.img6.url}}" class="pimg" height="450px" width="200px">
+                <!-- </div> -->
+
+                <!-- Next and previous buttons -->
+                <a class="prev" onclick="plusSlides(-1)"><i class="fa fa-chevron-left"></i></a>
+                <a class="next" onclick="plusSlides(1)"><i class="fa fa-chevron-right"></i></a>
+
+                <!-- Thumbnail images -->
+                <div class="row1">
+                    <div class="column">
+                    <img class="demo cursor" src="{{images.img1.url}}" style="width:70%" onclick="currentSlide(1)">
+                    </div>
+                    <div class="column">
+                    <img class="demo cursor" src="{{images.img2.url}}" style="width:70%" onclick="currentSlide(2)">
+                    </div>
+                    <div class="column">
+                    <img class="demo cursor" src="{{images.img3.url}}" style="width:70%" onclick="currentSlide(3)">
+                    </div>
+                    <div class="column">
+                    <img class="demo cursor" src="{{images.img4.url}}" style="width:70%" onclick="currentSlide(4)">
+                    </div>
+                    <div class="column">
+                    <img class="demo cursor" src="{{images.img5.url}}" style="width:70%" onclick="currentSlide(5)">
+                    </div>
+                    <div class="column">
+                    <img class="demo cursor" src="{{images.img6.url}}" style="width:70%" onclick="currentSlide(6)">
+                    </div>
+                </div>
+            </div>
+
+            <!---------------------DETAIL CONTAINER------------------------>
+
+            <div class="detail-pcontainer">
+                <!-- TITLE -->
+                <h1 class="ptitle">{{mobile.brand}} : {{mobile.model_no}}</h1>
+                <hr class="hr">
+                <!-- DESCRIPTION -->
+                <p class="pdescription">{{mobile.description}}</p>
+                <!-- PRICE -->
+                <p class="price">Rs. {{mobile.price}}</p>
+                <!-- BUTTONS -->
+                {% if user.is_authenticated %}
+                <button data-item_id={{mobile.id}} data-action="add" class="cartbtn">Add to cart</button>
+                <button data-item_id={{mobile.id}} data-action="buy" class="buybtn cartbtn">Buy Now</button>
+                {% else %}
+                <button  class="fakebtn">Add to cart</button>
+                <button class="fakebtn">Buy Now</button>
+                {% endif %}
+                <!-- OFFERS -->
+                <h4 class="offer">Available Offers</h4>
+                <ul class="offer-list">
+                    <li>Bank OfferPay ₹4800 less now with Flipkart Smart Upgrade Plan. Valid on Credit Card, Bajaj Finserv EMI Card. <a href="">T&C</a></li>
+                    <li>Bank Offer5% Unlimited Cashback on Flipkart Axis Bank Credit Card.<a href="">T&C</a></li>
+                    <li>Bank OfferFlat ₹100 off on first Flipkart Pay Later order of ₹500 and above <a href="">T&C</a></li>
+                    <li>Special PriceGet extra ₹3000 off (price inclusive of discount) <a href="">T&C</a></li>
+                </ul>
+                <hr class="hr">
+                <!-- FEATURES -->
+                <table>
+                    <!-- <tr>
+                        <th class="thead">Color</th>
+                        <td>BLue / Black</td>
+                    </tr> -->
+                    <tr>
+                        <th class="thead">Model</th>
+                        <td>{{mobile.model_no}}</td>
+                    </tr>
+                    <tr>
+                        <th class="thead">Storage</th>
+                        <td>{{mobile.memory.ram}} / {{mobile.memory.internal_memory}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="thead">Highlights</th>
+                        <td>
+                            <ul>
+                                <li>{{mobile.memory.ram}} | {{mobile.memory.internal_memory}} | Expandable Upto {{mobile.memory.expandable_storage}}</li>
+                                <li>{{mobile.display.display_dimension}} {{mobile.display.resolution}}</li>
+                                <li>{{mobile.camera.primary_cam}} Front Camera</li>
+                                <li>5000 mAh Battery</li>
+                                <li>{{mobile.processor.processor}} Processor</li>
+                            </ul>
+                        </td>
+                    </tr>
+                  </table>
+                  <hr class="hr1">
+            </div>
+            <!--------------------SPECIFICATION CONTAINER------------------------->
+            <div class="Specification-container">
+                <h2>Specifications</h2>
+                    <!-- GENERAL -->
+                    <h4>General</h4>
+                    <table>
+                    <tr>
+                        <th class="thead">In the Box</th>
+                        <td>Handset, Adapter (5V/6A), USB Cable (Type-C), SIM Card Tool, Screen Protect Film, Case, Important Info Booklet with Warranty Card, Quick Guide</td>
+                    </tr>
+                    <tr>
+                        <th class="thead">Model</th>
+                        <td>Number: RMX2117
+                            Name: {{mobile.model_no}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="thead">Sim type</th>
+                        <td>Dual Sim</td>
+                    </tr>
+                    </table>
+                    <hr class="hr">
+
+                    <!-- DISPLAY -->
+                    <h4>Display</h4>
+                    <table>
+                    <tr>
+                        <th class="thead">Display</th>
+                        <td>{{mobile.display.display_dimension}}</td>
+                    </tr>
+                    <tr>
+                        <th class="thead">Resolution</th>
+                        <td>{{mobile.display.resolution}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="thead">GPU</th>
+                        <td>{{mobile.display.gpu}}</td>
+                    </tr>
+                    </table>
+                    <span id="dots"></span>
+                    <span id="more">
+                    <hr class="hr">
+
+                    <!-- OS & PROCESSOR FEATURES -->
+                    <h4>Os & Processor Features</h4>
+                    <table>
+                    <tr>
+                        <th class="thead">Operating System</th>
+                        <td>{{mobile.processor.os}}</td>
+                    </tr>
+                    <tr>
+                        <th class="thead">Processor</th>
+                        <td>Type: {{mobile.processor.processor}}
+                            Core: {{mobile.processor.processor_core}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="thead">Clock Speed</th>
+                        <td>{{mobile.processor.clock_speed}}
+                        </td>
+                    </tr>
+                    </table>
+                    <hr class="hr">
+
+                    <!-- MEMORY & STORAGE FEATURES -->
+                    <h4>Memory & Storage Features</h4>
+                    <table>
+                        <tr>
+                            <th class="thead">Internal Storage</th>
+                            <td>{{mobile.memory.internal_memory}}</td>
+                        </tr>
+                        <tr>
+                            <th class="thead">RAM</th>
+                            <td>{{mobile.memory.ram}}</td>
+                        </tr>
+                        <tr>
+                            <th class="thead">Expandable Storage</th>
+                            <td>{{mobile.memory.expandable_storage}}</td>
+                        </tr>
+                        <tr>
+                            <th class="thead">Supported Memory Card Type</th>
+                            <td>{{mobile.memory.microsd}}</td>
+                        </tr>
+                        <tr>
+                            <th class="thead">Memory Card Slot Type</th>
+                            <td>Hybrid Slot</td>
+                        </tr>
+                    </table>
+                    <hr class="hr">
+
+                    <!-- CAMERA FEATURES -->
+                    <h4>Camera Features</h4>
+                    <table>
+                        <tr>
+                            <th class="thead">Primary Camera</th>
+                            <td>{{mobile.camera.primary_cam}}</td>
+                        </tr>
+                        <tr>
+                            <th class="thead">Primary Camera Features</th>
+                            <td>{{mobile.camera.primary_cam_features}}</td>
+                        </tr>
+                        <tr>
+                            <th class="thead">Secondary Camera</th>
+                            <td>{{mobile.camera.primary_cam}}</td>
+                        </tr>
+                        <tr>
+                            <th class="thead">Secondary Camera Features</th>
+                            <td>{{mobile.camera.secondary_cam_features}}</td>
+                        </tr>
+                        <tr>
+                            <th class="thead">Flash</th>
+                            <td>{{mobile.camera.flash}}</td>
+                        </tr>
+                        <tr>
+                            <th class="thead">Video Recording Resolution</th>
+                            <td>{{mobile.camera.video_rec_resolution}}</td>
+                        </tr>
+                        <tr>
+                            <th class="thead">Frame Rate</th>
+                            <td>30 fps, 60 fps(migrate)</td>
+                        </tr>
+                    </table>
+                    <hr class="hr">
+
+                    <!-- OTHER DETAILS -->
+                    <h4>Other Details</h4>
+                    <table>
+                        <tr>
+                            <th class="thead">Touchscreen Type</th>
+                            <td>{{mobile.other_detail.touchscreen_type}}</td>
+                        </tr>
+                        <tr>
+                            <th class="thead">SIM Size</th>
+                            <td>{{mobile.other_detail.sim_size}}</td>
+                        </tr>
+                        <tr>
+                            <th class="thead">User Interface</th>
+                            <td>{{mobile.other_detail.ui}}</td>
+                        </tr>
+                        <tr>
+                            <th class="thead">Sensors</th>
+                            <td>{{mobile.other_detail.sensors}}</td>
+                        </tr>
+                        <tr>
+                            <th class="thead">GPS Type</th>
+                            <td>{{mobile.other_detail.gps_type}}</td>
+                        </tr>
+                        <tr>
+                            <th class="thead">Fingerprint Available</th>
+                            <td>{{mobile.other_detail.fingerprint}}</td>
+                        </tr>
+                        <tr>
+                            <th class="thead">Fingerprint Type</th>
+                            <td>{{mobile.other_detail.fingerprint_type}}</td>
+                        </tr>
+                        <tr>
+                            <th class="thead">Call Records</th>
+                            <td>{{mobile.other_detail.call_recording}}</td>
+                        </tr>
+                    </table>
+                    <hr class="hr">
+
+                    <!-- WARRANTY -->
+                    <h4>Warranty</h4>
+                    <table>
+                        <tr>
+                            <th class="thead">Warranty Summary</th>
+                            <td>1 Year Warranty for Mobile and 6 Months for Accessories</td>
+                        </tr>
+                        <tr>
+                            <th class="thead">Domestic Warranty</th>
+                            <td>1 Year</td>
+                        </tr>
+                    </table>
+                    </span>
+
+                    <!-- READ MORE BUTTON -->
+                    <button onclick="myFunction()" id="myBtn">Read More</button>
+                    <hr class="hr1">
+            </div>
+
+            <!----------------------RATING CONTAINER----------------------->
+
+            <div class="rating-container">
+                <h2>Ratings</h2>
+                <p class="rating"> {{mobile.rate}} <i class="fa fa-star" aria-hidden="true"></i></p>
+            </div>
+        </div>
+<!--------------------------SCRIPT-------------------------------->
+
+
+        <script src="{% static "js/cart.js" %}"></script>
+        <script src="{% static "js/product_slider.js" %}"></script>
+          <script type="text/javascript">
+          var fakeButtons = document.getElementsByClassName("fakebtn");
+          for(var i=0; i<fakeButtons.length; i++){
+
+            fakeButtons[i].addEventListener("click",function(){
+              alert("Dear Customer Please Login! ")
+            })
+          }
+
+            //Read more button
+            function myFunction() {
+            var dots = document.getElementById("dots");
+            var moreText = document.getElementById("more");
+            var btnText = document.getElementById("myBtn");
+
+            if (dots.style.display === "none") {
+                dots.style.display = "inline";
+                btnText.innerHTML = "Read more";
+                moreText.style.display = "none";
+            } else {
+                dots.style.display = "none";
+                btnText.innerHTML = "Read less";
+                moreText.style.display = "inline";
+            }
+            }
+        </script>
+    </body>
+</html>
