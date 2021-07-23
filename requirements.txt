@@ -26,6 +26,8 @@ MarkupSafe==1.1.1
 
 Pillow==8.2.0
 
+pipenv==2021.5.29
+
 psycopg2==2.8.6
 
 PyJWT==1.7.1
