@@ -1,1 +1,1 @@
-web: gunicorn Anmol_Mobiles.wsgi --log-file
+web: gunicorn Anmol_Mobiles.wsgi
